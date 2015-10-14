@@ -1,7 +1,7 @@
 # dotfiles
 
-My vim and bash configuration. Also requires vundle. Installation script coming soon.
+My vim and bash configuration. Also requires vundle.
 
 ```sh
-source bash_customize
+./install.sh
 ```

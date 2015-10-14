@@ -1,3 +1,6 @@
+#sources
+source .git-prompt.sh
+
 #scripts
 __fishy_collapsed_wd() {
     echo $(pwd | perl -pe "

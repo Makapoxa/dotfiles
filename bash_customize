@@ -1,0 +1,54 @@
+#scripts
+__fishy_collapsed_wd() {
+    echo $(pwd | perl -pe "
+      BEGIN {
+      binmode STDIN,  ':encoding(UTF-8)';
+      binmode STDOUT, ':encoding(UTF-8)';
+    }; s|^$HOME|~|g; s|/([^/]{3})[^/]*(?=/)|/\$1|g
+  ")
+}
+
+function up() {
+    LIMIT=$1
+    P=$PWD
+    for ((i=1; i <= LIMIT; i++)) do
+      P=$P/..
+    done
+    cd $P
+    export MPWD=$P
+}
+
+#git prompt coloring
+COLOR_RED="\033[0;31m"
+COLOR_YELLOW="\033[0;33m"
+COLOR_GREEN="\033[0;32m"
+COLOR_OCHRE="\033[38;5;95m"
+COLOR_BLUE="\033[0;34m"
+COLOR_WHITE="\033[0;37m"
+COLOR_RESET="\033[0m"
+
+function git_color {
+  local git_status="$(git status 2> /dev/null)"
+  if [[ ! $git_status =~ "working directory clean" ]]; then
+    echo -e $COLOR_RED
+  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+    echo -e $COLOR_YELLOW
+  elif [[ $git_status =~ "nothing to commit" ]]; then
+    echo -e $COLOR_GREEN
+  else
+    echo -e $COLOR_OCHRE
+  fi
+}
+
+#aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ai='sudo apt-get install'
+alias au='sudo apt-get update && sudo apt-get upgrade'
+alias ar='sudo apt-get remove'
+alias git='LANGUAGE=en_US.UTF-8 git'
+
+#prompt
+PS1="${debian_chroot:+($debian_chroot)}\[\e[1;2m\][\$(__fishy_collapsed_wd)]\[\$(git_color)\]\$(__git_ps1)\[\e[0m\]\$ "
+

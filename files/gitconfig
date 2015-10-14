@@ -1,0 +1,11 @@
+[alias]
+    co = checkout
+    nb = checkout -b
+    st = status
+		cc = rev-list --count HEAD ^master
+		push = push -u
+		cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d"
+		put = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+[core]
+		editor = code --wait
+		excludesfile = ~/.gitignore

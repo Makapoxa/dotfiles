@@ -1,0 +1,64 @@
+#sources
+source ~/.git-prompt.sh
+source ~/.git-completion.bash
+
+#git prompt coloring
+COLOR_RED="\033[1;31m"
+COLOR_YELLOW="\033[0;33m"
+COLOR_GREEN="\033[0;32m"
+COLOR_OCHRE="\033[38;5;95m"
+
+#scripts
+__fishy_collapsed_wd() {
+    echo $(pwd | perl -pe "
+      BEGIN {
+      binmode STDIN,  ':encoding(UTF-8)';
+      binmode STDOUT, ':encoding(UTF-8)';
+    }; s|^$HOME|~|g; s|/([^/]{3})[^/]*(?=/)|/\$1|g
+  ")
+}
+
+function up() {
+    LIMIT=$1
+    P=$PWD
+    for ((i=1; i <= LIMIT; i++)) do
+      P=$P/..
+    done
+    cd $P
+    export MPWD=$P
+}
+
+function git_color {
+  local git_status="$(git status 2> /dev/null)"
+  if [[ ! $git_status =~ "working tree clean" ]]; then
+    echo -e $COLOR_RED
+  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+    echo -e $COLOR_YELLOW
+  elif [[ $git_status =~ "nothing to commit" ]]; then
+    echo -e $COLOR_GREEN
+  else
+    echo -e $COLOR_OCHRE
+  fi
+}
+
+#aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias git='LANGUAGE=en_US.UTF-8 git'
+alias dc="docker compose"
+alias r="docker compose run --rm rails"
+alias ra="docker attach jiffyshirts-rails-1"
+
+
+#prompt
+PS1="${debian_chroot:+($debian_chroot)}\[\e[1;2m\][\$(__fishy_collapsed_wd)]\[\$(git_color)\]\$(__git_ps1)\[\e[0m\]\$ "
+
+
+#env variables
+export TERM='screen-256color'
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+eval "$(mcfly init bash)"
+
+export MCFLY_RESULTS_SORT=LAST_RUN

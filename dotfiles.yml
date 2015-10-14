@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - file: src={{ curdir }}/files/{{ item }} dest=~/.{{ item }} state=link force=yes
+      with_items:
+        - gitconfig
+        - git-prompt.sh
+        - git-completion.bash
+        - bash_customize
+
+    - lineinfile: dest="~/.bashrc" line="source ~/.bash_customize" state=present create=yes

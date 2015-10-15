@@ -1,7 +1,8 @@
 # dotfiles
 
-My vim and bash configuration. Also requires vundle.
+My vim and bash configuration.
 
 ```sh
-./install.sh
+$ sudo apt-get install git vim
+$ ./install.sh
 ```

@@ -1,0 +1,21 @@
+---
+language: python
+
+sudo: true
+
+before_install:
+
+  # Make sure everything's up to date.
+
+  # - sudo apt-get update -qq
+
+
+install:
+    # Install Ansible.
+    # - pip install ansible
+
+script:
+  - rm -rf ~/.gitconfig
+  - git clone https://github.com/Makapoxa/dotfiles.git /var/tmp/dotfiles
+  - cd /var/tmp/dotfiles
+  - make install_all

@@ -52,3 +52,5 @@ alias git='LANGUAGE=en_US.UTF-8 git'
 #prompt
 PS1="${debian_chroot:+($debian_chroot)}\[\e[1;2m\][\$(__fishy_collapsed_wd)]\[\$(git_color)\]\$(__git_ps1)\[\e[0m\]\$ "
 
+#env variables
+export TERM='screen-256color'

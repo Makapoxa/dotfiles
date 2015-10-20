@@ -139,7 +139,7 @@ set expandtab
 
 " set background=dark
 set t_Co=256
-colorscheme jellybeans
+colors jellybeans
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.

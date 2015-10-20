@@ -1,4 +1,5 @@
 # dotfiles
+[![Build Status](https://travis-ci.org/Makapoxa/dotfiles.svg?branch=master)](https://travis-ci.org/Makapoxa/dotfiles)
 
 My vim and bash configuration.
 
@@ -8,7 +9,7 @@ $ make install_dotfiles
 $ make install_vim
 ```
 
-### Or
+### or
 
 ```sh
 $ make install_all

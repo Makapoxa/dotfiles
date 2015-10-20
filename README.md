@@ -3,6 +3,13 @@
 My vim and bash configuration.
 
 ```sh
-$ sudo apt-get install git vim
-$ ./install.sh
+$ make install_soft
+$ make install_dotfiles
+$ make install_vim
+```
+
+### Or
+
+```sh
+$ make install_all
 ```

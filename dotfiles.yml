@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - file: src={{ curdir }}/files/{{ item }} dest=~/.{{ item }} state=link force=yes
+      with_items:
+        - vimrc
+        - git-prompt.sh
+        - bash_customize
+
+    - copy: src={{ curdir }}/Vundle.vim dest=~/.vim/bundle/Vundle.vim force=yes
+
+    - lineinfile:
+        dest="~/.bashrc" line="source ~/.bash_customize" state=present create=yes

@@ -13,3 +13,9 @@
 
     - lineinfile:
         dest="~/.bashrc" line="source ~/.bash_customize" state=present create=yes
+
+    - file: path=~/.vim/colors state=directory
+
+    - get_url:
+        url: https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
+        dest: ~/.vim/colors/jellybeans.vim

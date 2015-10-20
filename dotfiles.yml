@@ -7,7 +7,9 @@
         - git-prompt.sh
         - bash_customize
 
-    - copy: src={{ curdir }}/Vundle.vim dest=~/.vim/bundle/Vundle.vim force=yes
+    - git:
+        repo: https://github.com/VundleVim/Vundle.vim.git
+        dest: ~/.vim/bundle/Vundle.vim
 
     - lineinfile:
         dest="~/.bashrc" line="source ~/.bash_customize" state=present create=yes

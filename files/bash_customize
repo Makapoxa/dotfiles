@@ -54,3 +54,4 @@ PS1="${debian_chroot:+($debian_chroot)}\[\e[1;2m\][\$(__fishy_collapsed_wd)]\[\$
 
 #env variables
 export TERM='screen-256color'
+export VAGRANT_DEFAULT_PROVIDER='lxc'

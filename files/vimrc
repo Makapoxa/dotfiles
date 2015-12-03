@@ -101,8 +101,6 @@ set backspace=eol,start,indent
 " enhanced command completion
 set wildmenu
 
-set visualbell
-
 if has('mouse')
   set mouse=a
 endif

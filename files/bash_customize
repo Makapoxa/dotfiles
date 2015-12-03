@@ -48,6 +48,10 @@ alias ai='sudo apt-get install'
 alias au='sudo apt-get update && sudo apt-get upgrade'
 alias ar='sudo apt-get remove'
 alias git='LANGUAGE=en_US.UTF-8 git'
+alias vups='vagrant up && vagrant ssh'
+alias vup='vagrant up'
+alias vsh='vagrant ssh'
+alias vhlt='vagrant halt'
 
 #prompt
 PS1="${debian_chroot:+($debian_chroot)}\[\e[1;2m\][\$(__fishy_collapsed_wd)]\[\$(git_color)\]\$(__git_ps1)\[\e[0m\]\$ "

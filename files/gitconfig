@@ -1,0 +1,7 @@
+[alias]
+    co = checkout
+    nb = checkout -b
+    st = status
+[user]
+	email = makarocha@gmail.com
+	name = Makapoxa

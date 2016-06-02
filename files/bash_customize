@@ -41,7 +41,8 @@ function git_color {
 }
 
 #aliases
-alias gt='git'
+alias fuck='sudo !!'
+alias g='git '
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -53,6 +54,8 @@ alias vups='vagrant up && vagrant ssh'
 alias vup='vagrant up'
 alias vsh='vagrant ssh'
 alias vhlt='vagrant halt'
+alias zbs='git rebase --continue'
+alias nah='git rebase --abort'
 
 #prompt
 PS1="${debian_chroot:+($debian_chroot)}\[\e[1;2m\][\$(__fishy_collapsed_wd)]\[\$(git_color)\]\$(__git_ps1)\[\e[0m\]\$ "

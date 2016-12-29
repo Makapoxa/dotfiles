@@ -1,3 +1,5 @@
+set runtimepath=~/.vim/,~/.vim,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/addons,/usr/share/vim/vim74,/usr/share/vim/vimfiles,/usr/share/vim/addons/after,~/.vim/after
+set shell=/bin/bash
 set nocompatible
 filetype off
 
@@ -9,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'tpope/vim-sleuth'
+Plugin 'rking/ag.vim'
 " Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
@@ -19,7 +22,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'ctrlpvim/ctrlp.vim'
 " Plugin 'altercation/vim-colors-solarized'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
@@ -264,3 +266,5 @@ au BufRead,BufNewFile {Vagrantfile,Gemfile,Capfile} set ft=ruby
 if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
 endif
+
+let g:ctrlp_custom_ignore = 'node_modules'

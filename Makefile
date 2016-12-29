@@ -5,7 +5,7 @@ install_soft:
 	sudo apt-get install git vim ansible -y
 
 install_dotfiles:
-	/usr/bin/ansible-playbook dotfiles.yml -i local -v -e curdir=$(CURDIR)
+	ansible-playbook dotfiles.yml -i local -v -e curdir=$(CURDIR)
 
 install_vim:
 	vim -i NONE -c PluginInstall -c quitall

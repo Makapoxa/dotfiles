@@ -7,6 +7,7 @@
         - vimrc
         - git-prompt.sh
         - bash_customize
+    - file: src={{ curdir }}/nvim dest=~/.config/nvim state=link force=yes
 
     - git:
         repo: https://github.com/VundleVim/Vundle.vim.git

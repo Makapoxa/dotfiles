@@ -4,20 +4,9 @@
     - file: src={{ curdir }}/files/{{ item }} dest=~/.{{ item }} state=link force=yes
       with_items:
         - gitconfig
-        - vimrc
+        - spacemacs
         - git-prompt.sh
         - bash_customize
-    - file: src={{ curdir }}/nvim dest=~/.config/nvim state=link force=yes
-
-    - git:
-        repo: https://github.com/VundleVim/Vundle.vim.git
-        dest: ~/.vim/bundle/Vundle.vim
 
     - lineinfile:
         dest="~/.bashrc" line="source ~/.bash_customize" state=present create=yes
-
-    - file: path=~/.vim/colors state=directory
-
-    - get_url:
-        url: https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
-        dest: ~/.vim/colors/jellybeans.vim

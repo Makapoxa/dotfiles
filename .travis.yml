@@ -16,4 +16,4 @@ script:
   - rm -rf ~/.gitconfig
   - git clone https://github.com/Makapoxa/dotfiles.git /var/tmp/dotfiles
   - cd /var/tmp/dotfiles
-  - make install_all
+  - make
